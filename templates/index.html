@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleIndex.css') }}">
+    <title>Вход</title>
+{% endblock %}
+
+
+
+{% block body %}
+
+    <main>
+        <div class="circle"></div>
+        <form method="POST">
+        <div class="register-form-container">
+            <h1 class="form-title">
+                Вход
+            </h1>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for message in messages %}
+                            <div class="log-pass">{{ message }}</div>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <div class="form-fields">
+                <div class="form-field">
+                    <input type="text" placeholder="Логин" name="login">
+                </div>
+                <div class="form-field">
+                    <input type="password" id="password-input" placeholder="Пароль" name="password">
+                    <span class="pass-icon" id="pass-icon"><img src="{{ url_for('static', filename='image/eye.png') }}" style="width:25px;height:25px;" id="image-icon"></span>
+                </div>
+            </div>
+            <div class="form-buttons">
+                <button class="button" type="submit" value="Login">Войти</button>
+                <div class="divider">У вас нет аккаунта?</div>
+                <a href="{{ url_for('registration') }}" class="button button-reg">Зарегистрируйтесь</a>
+            </div>
+        </div>
+        </form>
+        <script type="text/javascript">
+            const inputPass = document.
+            getElementById('password-input');
+            const iconPass = document.
+            getElementById('pass-icon');
+            const imgPass = document.
+            getElementById('image-icon');
+
+            iconPass.addEventListener('click', () => {
+                    if (inputPass.getAttribute('type')
+                        === "password") {
+                        inputPass.setAttribute('type',
+                            'text');
+                    } else {
+                        inputPass.setAttribute('type',
+                            'password');
+
+                    }
+                });
+
+
+            iconPass.addEventListener('click', () => {
+                    if (imgPass.getAttribute('src')
+                        === "{{ url_for('static', filename='image/eye.png') }}") {
+                        imgPass.setAttribute('src',
+                            "{{ url_for('static', filename='image/eyeHide.png') }}");
+                    } else {
+                        imgPass.setAttribute('src',
+                            "{{ url_for('static', filename='image/eye.png') }}");
+
+                    }
+                });
+        </script>
+    </main>
+{% endblock %}

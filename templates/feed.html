@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleFeed.css') }}">
+    <title>Заметки</title>
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper">
+    <header>
+        <a href="#"><img src="{{ url_for('static', filename='image/logotypetext.png')  }}" class="logotypetext" alt="" style="top: 30px; width: 230px; height: 90px;"></a>
+        <button onclick="myFunction()" class="menu edit-menu dropbtn bttmenudes">Меню</button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="{{ url_for('logout') }}">Выход</a>
+        </div>
+        <a class="create edit-menu bttmenudes" href="{{ url_for('create') }}">Добавить заметку</a>
+        <div class="down">
+        </div>
+    </header>
+        <div class="posts">
+            {% if feed|length > 0 %}
+                {% for Note in feed %}
+                <div class="post" id="{{ Note.id }}">
+                    <h1 class="title">{{ Note.title }}</h1>
+                    <p class="text">{{ Note.text }}</p>
+
+                    <a class="edit" id="editButton" href="/feed/{{ Note.id }}/edit"><img src="{{ url_for('static', filename='image/edit.png') }}" style="width: 20px;"></a>
+                    <a class="delete" id="deleteButton" href="/feed/{{ Note.id }}/delete"><img src="{{ url_for('static', filename='image/delete.png') }}" style="width: 20px;"></a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <h1>Заметок нет на сайте</h1>
+            {% endif %}
+        </div>
+        <footer>
+    <div class="footer">
+     <div class="row">
+         <a href="{{ url_for('feed') }}"><img src="{{ url_for('static', filename='image/logotypetext.png') }}" style="width:125px"></img></a>
+            </div>
+    <div class="row">
+        <ul>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Наши услуги</a></li>
+            <li><a href="#">Политика конфиденциальности</a></li>
+            <li><a href="#">Условия использования</a></li>
+            </ul>
+    </div>
+        <div class="row">
+    ©2004–2023 Bulkin.project Все права защищены.
+        </div>
+    </div>
+</footer>
+        </div>
+
+<script src="{{ url_for('static', filename='js/scriptFeed.js') }}"></script>
+{% endblock %}
+

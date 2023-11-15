@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleCreate.css') }}">
+    <title>Редактирование заметки</title>
+{% endblock %}
+
+{% block body %}
+<header>
+		<a href="{{ url_for('feed') }}"><img src="{{ url_for('static', filename='image/logotypetext.png') }}" class="logotypetext" style="top: 30px; width: 230px; height: 90px;"></a>
+		<button onclick="myFunction()" class="edit-menu dropbtn bttmenudes">Меню</button>
+		<div id="myDropdown" class="dropdown-content">
+			<a href="{{ url_for('logout') }}">Выход</a>
+		</div>
+		<div class="create edit-menu bttmenudes">Добавить заметку</div>
+</header>
+<form method="post" class="form-control">
+    <textarea name="title" type="text" placeholder="Введите название" maxlength="35" class="title-text" >{{ note.title }}</textarea>
+	<textarea name="text" type="text" placeholder="Напишите заметку" class="soder-text" >{{ note.text }}</textarea>
+	<button style="word-break: break-all;" class="btn-create" type="submit">Изменить заметку</button>
+</form>
+<footer>
+    <div class="footer">
+     <div class="row">
+         <a href="{{ url_for('feed') }}"><img src="{{ url_for('static', filename='image/logotypetext.png') }}" style="width:125px"></img></a>
+            </div>
+    <div class="row">
+        <ul>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Наши услуги</a></li>
+            <li><a href="#">Политика конфиденциальности</a></li>
+            <li><a href="#">Условия использования</a></li>
+            </ul>
+    </div>
+        <div class="row">
+    ©2004–2023 Bulkin.project Все права защищены.
+        </div>
+    </div>
+    </footer>
+<script src="{{ url_for('static', filename='js/scriptCreate.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleRegistration.css') }}">
+    <title>Регистрация</title>
+{% endblock %}
+
+{% block body %}
+
+    <main>
+        <div class="circle"></div>
+        <form method="POST">
+        <div class="register-form-container">
+            <h1 class="form-title">
+                Регистрация
+            </h1>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for message in messages %}
+                            <div class="log-pass">{{ message }}</div>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <div class="form-fields">
+                <div class="form-field">
+                    <input type="text" placeholder="Логин" name="login">
+                </div>
+                <div class="form-field">
+                    <input type="text" placeholder="Пароль" name="password">
+                </div>
+                <div class="form-field">
+                    <input type="text" placeholder="Повторите пароль" name="re_password">
+                </div>
+            </div>
+            <div class="form-buttons">
+                <button class="button" value="Register" type="submit">Зарегистрироваться</button>
+                <div class="divider">У вас уже есть аккаунт?</div>
+                <a href="{{ url_for('index') }}" class="button button-reg" >Войдите</a>
+            </div>
+        </div>
+        </form>
+    </main>
+{% endblock %}

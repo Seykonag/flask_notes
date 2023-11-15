@@ -1,0 +1,290 @@
+header {
+    position: fixed;
+    top: 0;
+    padding:30px;
+    background-color: #318CE7;
+    width: 1900px;
+    height:160px;
+    box-sizing:border-box;
+    border-radius: 100px;
+    display: flex;
+    z-index: 10000;
+    -webkit-box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+.footer {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 220px;
+    background: white;
+    padding: 30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align: center;
+    position: relative;
+    z-index: 10000;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+html, body {
+	background-image: url("../image/fone.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    object-fit: cover;
+    background-size: cover;
+    margin: 0;
+    position: absolute;
+    overflow-x: hidden;
+}
+
+.edit-menu {
+    width: 200px;
+    height: 94px;
+    flex-shrink: 0;
+    color: black;
+    font-family: Comic Sans Ms;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+    display: flex;
+    justify-content: right;
+    position: absolute;
+    right: 50px;
+    top: 5%;
+
+}
+
+
+.bttmenudes {
+    position: absolute;
+    right: 50px;
+    top: 33%;
+    width: 110px;
+    height: 50px;
+    font-family: Comic Sans Ms;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: linear-gradient(90deg, #313885 -3.7%, #313885 100%);
+}
+
+.create {
+    position: absolute;
+    right: 200px;
+    top: 33%;
+    font-size: 30px;
+    padding: 17px;
+    text-decoration: none;
+    height:17px;
+    width:257px;
+    color: white;
+    transition: 1s;
+    text-align: center;
+}
+
+.create:hover {
+    background-color:#ddd;
+  transform: scale(1.05);
+}
+
+.dropbtn {
+    background-color: #ffff;
+    color: white;
+    padding: 17px;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    width: 120px;
+    height: 50px;
+    transition: 1s;
+    text-align: center;
+
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #ddd;
+    transform: scale(1.05);
+    }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 50px;
+    top: 65%;
+    background: linear-gradient(90deg, #525FE1 -3.7%, #2E3899 102.51%);
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 13px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 12px;
+    text-decoration: none;
+    display: block;
+    font-family: Comic Sans Ms;
+}
+
+.dropdown-content a:hover {
+    background-color: #525FE1;
+        border-radius: 13px;
+}
+
+.show {
+    display: block;
+}
+
+.posts {
+    top: 20%;
+    left: 250px;
+    flex: 1 1 auto;
+    position: relative;
+    top: 180px;
+    left: 250px;
+    flex: 1 1 auto;
+    position: relative;
+    top: 180px; /* Ïåðåìåùåíèå êîíòåíòà âíèç, ó÷èòûâàÿ âûñîòó header */
+    left: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 220px; /* Ó÷èòûâàåò âûñîòó footer */
+}
+
+.post {
+    position: relative;
+    display: flex;
+    width: 1300px;
+    padding: 30px;
+    border-radius: 15px;
+    background: var(--grey-11, #FFFFFF);
+    flex-direction: column;
+    margin: 30px;
+}
+
+.post:hover {
+    background: silver;
+    color: black;
+}
+
+
+h1 {
+    font: 25px Comic Sans Ms;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+p {
+    font: 20px Calibri;
+    display: block;
+    margin: 10px;
+    padding: 0;
+}
+
+.logotypetext{
+    position: absolute;
+    top: 600px;
+    left: 50px;
+
+  -webkit-transition: all 1s ease;
+          transition: all 1s ease;
+}
+
+img.logotypetext:hover {
+  -webkit-transform: rotate(3deg);
+          transform: rotate(3deg);
+
+}
+
+.edit {
+    position: absolute;
+    top: 20px;
+    right: 55px;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    border: 0;
+    background: transparent;
+    visibility: hidden;
+}
+
+.delete {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    border: 0;
+    background: transparent;
+        visibility: hidden;
+}
+
+.post:hover .edit,
+.post:hover .delete {
+    visibility: visible;
+}
+
+.footer .row{
+    width:100%;
+    margin:1% 0%;
+    padding:0.6% 0%;
+    color:gray;
+    font-size:0.8em;
+}
+
+.footer .row a{
+    text-decoration:none;
+    color:gray;
+    transition:0.5s;
+}
+
+.footer .row a:hover{
+    color:#fff;
+}
+
+.footer .row ul{
+    width:100%;
+}
+
+.footer .row ul li{
+    display:inline-block;
+    margin:0px 30px;
+}
+
+.footer .row a i{
+    font-size:2em;
+    margin:0% 1%;
+}
+
+@media (max-width:720px){
+.footer{
+    text-align:left;
+    padding:5%;
+}
+.footer .row ul li{
+    display:block;
+    margin:10px 0px;
+    text-align:left;
+}
+.footer .row a i{
+    margin:0% 3%;
+}
+}
